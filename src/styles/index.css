@@ -2,10 +2,10 @@
     max-height: 100px;
 }
 
-.on {
-    background: yellow;
+.myLink {
+    text-decoration: none;
 }
 
-.cued {
-    background: blue;
+.my-card {
+    max-width: 20vw;
 }

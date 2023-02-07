@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 
 function Mynavbar() {
     const navigate = useNavigate();
@@ -23,8 +23,19 @@ function Mynavbar() {
                 <Navbar.Toggle aria-controls="navbarScroll" />
                 <Navbar.Collapse id="navbarScroll">
                     <Nav className="me-auto my-2 my-lg-0 mh-100" navbarScroll>
-                        <Nav.Link href="/">Home</Nav.Link>
-                        <Nav.Link href="/blog">Blogs</Nav.Link>
+                        <Nav.Link
+                            to="/"
+                            className={({ isActive, isPending }) => {
+                                return isActive
+                                    ? "on"
+                                    : isPending
+                                    ? "cued"
+                                    : "";
+                            }}
+                        >
+                            Home
+                        </Nav.Link>
+                        <Nav.Link href="/blogs">Blogs</Nav.Link>
                         <NavDropdown
                             title="About Us"
                             id="navbarScrollingDropdown"
